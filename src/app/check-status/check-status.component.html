@@ -1,0 +1,42 @@
+
+<div align="center">
+  <h1>FILE STATUS</h1>
+  <br>
+  <label> Enter Employee Id
+  <input required type="number" #userIdRef='ngModel' name="userId" [(ngModel)]="userId" ngModel class="form-control"></label>
+  <div *ngIf='userIdRef.errors
+              && userIdRef.touched' class="alert alert-danger">
+      <div [hidden]='!userIdRef.errors.required'>
+          Provide employee id
+      </div>
+  </div>
+
+  <input type="button" value="search" (click)="getStatus()" class="btn btn-primary" class="form-group"/>
+</div>
+<br>
+<div *ngIf="search" align="center" >
+  <table class="table table-striped" >
+
+          <tbody align="center">
+      <tr>
+          <th>Verification Id</th>
+          <td> {{verification.verId}} </td></tr>
+          <tr>  <th>Status</th>
+          <td> {{verification.status}} </td></tr>
+
+          <tr>
+          <th>Employee Id</th>
+          <td>{{verification.logindata.userId}}</td></tr>
+          <tr>
+      </tr>
+  </tbody>
+
+  </table>
+</div>
+<div align="center" *ngIf="search1" align="center">
+  <h3> Invalid User ID</h3>
+</div>
+
+
+<div align="right"> <input type="submit"  routerLink='/app-employee' value="Back" class="btn btn-success">
+</div>

@@ -1,0 +1,30 @@
+<div align="center" class="container-row">
+  <h1>FILE RETRIEVAL</h1>
+</div>
+<div align="center">
+ <div class="container row">
+  <div  class="col-md-12">
+      <input type="text" class="form-control" id="name" placeholder="FILE ID" [(ngModel)]="fileId"
+          name="name" />
+  </div>
+</div>
+<br>
+  <div class="container row">
+ <div  class="col-md-12">
+  <input type="button" (click)="getImage()" value="Get File">
+</div>
+</div>
+
+</div>
+
+<div class="container row">
+<div class="col-md-12">
+  <div *ngIf=retrievedImage>
+      <img [src]="retrievedImage">
+  </div>
+</div>
+</div>
+
+
+<div align="right"> <input type="submit"  routerLink='/app-bgv' value="Back" class="btn btn-success">
+</div>

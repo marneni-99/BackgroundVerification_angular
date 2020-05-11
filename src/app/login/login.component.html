@@ -1,0 +1,50 @@
+
+ <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<div class="container">
+  <h3>LOGIN</h3>
+ <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+     <div class="form-group">
+         <label>Username </label>
+         <input required type="text" #userNameRef='ngModel' name="userName" ngModel class="form-control">
+         <div *ngIf='userNameRef.errors && userNameRef.touched' class="alert alert-danger">
+             <div [hidden]='!userNameRef.errors.required'>
+                 Provide User Name
+             </div>
+         </div>
+     </div>
+
+
+     <div class="form-group">
+      <label>UserType </label>
+      <input required type="text" #userName='ngModel' name="userType" ngModel class="form-control">
+      <div *ngIf='userNameRef.errors && userNameRef.touched' class="alert alert-danger">
+          <div [hidden]='!userNameRef.errors.required'>
+              Provide User Type
+          </div>
+      </div>
+  </div>
+
+
+     <div class="form-group">
+
+         <label>Password </label>
+
+         <input required minlength="4" type="password" #userPasswordRef='ngModel' name="userPassword" ngModel class="form-control">
+
+         <div *ngIf='userPasswordRef.errors && userPasswordRef.touched' class="alert alert-danger">
+
+             <div [hidden]='!userPasswordRef.errors.required'>Enter password</div>
+
+         </div>
+     </div>
+
+     <input [disabled]="userForm.invalid" type="submit"  value="submit" class="btn btn-success">
+     </form>
+</div>
+
+
